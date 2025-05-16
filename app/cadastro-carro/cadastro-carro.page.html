@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Carro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" fill="clear" color="danger">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Sair
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Marca</ion-label>
+    <ion-input [(ngModel)]="marca"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Modelo</ion-label>
+    <ion-input [(ngModel)]="modelo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cor</ion-label>
+    <ion-input [(ngModel)]="cor"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Placa</ion-label>
+    <ion-input [(ngModel)]="placa"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="salvarCarro()">Salvar</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let carro of carros">
+      <ion-label>
+        <h2>{{ carro.marca }} {{ carro.modelo }} (ID: {{ carro.id }})</h2>
+        <p><strong>Cor:</strong> {{ carro.cor }}</p>
+        <p><strong>Placa:</strong> {{ carro.placa }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
